@@ -1,20 +1,16 @@
 package service
-
 import (
 	"context"
 	"fmt"
 	"log"
-
 	// "net/http"
 	// "errors"
+	"github.com/tikv/client-go/v2/config"
+	"github.com/tikv/client-go/v2/rawkv"
 	"data-check-all/model"
 	"strings"
 	"time"
-
-	"github.com/tikv/client-go/v2/config"
-	"github.com/tikv/client-go/v2/rawkv"
 )
-
 // Test function for TiKV CRUD operations
 func TestTiKV(tikvConfigs []model.TiKVConfig) {
 	ctx := context.Background()
