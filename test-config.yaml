@@ -1,0 +1,38 @@
+clickhouse:
+  - host: "localhost"
+    port: 9000
+    username: "default"
+    password: "password"
+    database: "default"
+    db_table_name: "test_table"
+    local_table_name: "local_test"
+    tls: false
+    ssl_client_crt: "path/to/client.crt"
+    ssl_client_key: "path/to/client.key"
+    ssl_ca_crt: "path/to/ca.crt"
+
+tidb:
+  - host: "localhost"
+    port: 4000
+    username: "root"
+    password: "password"
+    database: "test"
+    table_name: "test_table"
+    ssl_client_crt: "path/to/tidb-tls.crt"
+    ssl_client_key: "path/to/tidb-tls.key"
+    ssl_ca_crt: "path/to/tidb-ca.crt"
+    tls: false
+
+tikv:
+  - host: "localhost"
+    port: 20160
+    ssl_client_crt: "path/to/tikv-tls.crt"
+    ssl_client_key: "path/to/tikv-tls.key"
+    ssl_ca_crt: "path/to/tikv-ca.crt"
+    prefix: "test"
+
+es:
+  - host: "localhost"
+    port: 9200
+    username: "elastic"
+    password: "password"
