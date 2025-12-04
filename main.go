@@ -17,7 +17,11 @@ type Config struct {
 }
 
 func main() {
-	data, err := os.ReadFile("config.yaml")
+	configPath := os.Getenv("CONFIG_PATH")
+	if configPath == "" {
+		configPath = "config.yaml"
+	}
+	data, err := os.ReadFile(configPath)
 	if err != nil {
 		log.Fatal(err)
 	}

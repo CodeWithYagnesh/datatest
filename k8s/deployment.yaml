@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name:  all-db-test
+  namespace: default
+  labels:
+    name:  all-db-test
+spec:
+  template:
+    metadata:
+      labels:
+        name:  all-db-test
+    spec:
+      containers:
+      - image:  yagneshjariwala/all-db-test:latest
+        name:  all-db-test
+        env:
+        - name: CONFIG_PATH
+          value: /config/config.yaml
+        resources:
+          requests:
+            cpu: "20m"
+            memory: "55M"
+          limits:
+            cpu: "100m"
+            memory: "128M"
+        volumeMounts:
+        - mountPath: /certs
+          name: certs
+        - mountPath: /config
+          name: db-config
+      volumes:
+        - name: certs
+          configMap:
+            name: all-db-test-certs
+        - name: db-config
+          configMap:
+            name: all-db-test-config
